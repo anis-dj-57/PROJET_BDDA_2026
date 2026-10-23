@@ -13,13 +13,13 @@ public class Main {
         System.out.println("   Tapez 'EXIT' (en majuscules) pour quitter");
         System.out.println("==========================================");
 
-        // Utilisation d'un try-with-resources pour fermer proprement le Scanner à la fin
+        // Utilisation d'un try-with-resources pour fermer proprement le Scanner à la fin (oui ca sert aussi à cella)
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 System.out.print("\nSGBD> ");
                 
                 // Si le flux d'entrée est fermé, on quitte.
-                // Ex : lancez le programme avec un script automatisé qui envoie des commandes à la chaîne,
+                // Ex : lancez le programme avec un script automatisé qui envoie des commandes à la chaîne (à faire plus tard),
                 // une fois que le script a tout envoyé, le flux se ferme.
                 if (!scanner.hasNextLine()) {
                     break;
@@ -27,7 +27,7 @@ public class Main {
 
                 String commande = scanner.nextLine().trim();
 
-                // Condition d'arrêt stricte exigée par TP1_new : "EXIT" tout en majuscules
+                // Condition d'arrêt : "EXIT" tout en majuscules
                 if (commande.equals("EXIT")) {
                     System.out.println("Fermeture du MiniSGBDR. À bientôt !");
                     break;
