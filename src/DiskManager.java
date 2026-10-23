@@ -298,9 +298,9 @@ public class DiskManager implements IDiskManager {
         if (buffer == null) {
             throw new DiskManagerException("Erreur ReadPage : Le ByteBuffer fourni est null.");
         }
-        if (buffer.capacity() < this.pageSize) {
+        if (buffer.capacity() != this.pageSize) {
             throw new DiskManagerException("Erreur ReadPage : La capacité du ByteBuffer (" + buffer.capacity()
-                    + ") est inférieure à la taille d'une page (" + this.pageSize + ").");
+                    + ") doit être exactement égale à la taille d'une page (" + this.pageSize + ").");
         }
 
         // 3. Lecture dans le fichier binaire au bon offset avec RandomAccessFile
@@ -340,9 +340,9 @@ public class DiskManager implements IDiskManager {
         if (buffer == null) {
             throw new DiskManagerException("Erreur WritePage : Le ByteBuffer fourni est null.");
         }
-        if (buffer.capacity() < this.pageSize) {
+        if (buffer.capacity() != this.pageSize) {
             throw new DiskManagerException("Erreur WritePage : La capacité du ByteBuffer (" + buffer.capacity()
-                    + ") est inférieure à la taille d'une page (" + this.pageSize + ").");
+                    + ") doit être exactement égale à la taille d'une page (" + this.pageSize + ").");
         }
 
         // 3. Extraction des pageSize octets depuis le début du ByteBuffer
